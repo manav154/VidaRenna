@@ -1,0 +1,948 @@
+/* General Body and Container Styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+    /* Smoother, more subtle background gradient for a healing feel */
+    background: linear-gradient(135deg, #f0f8ff, #e6f7ff, #ffe0f0); /* Light blue to very light pink, subtle transition */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+}
+
+
+
+.logo img {
+  height: 60px;         /* was 40px—make it bigger for clarity */
+  width: auto;
+  margin-right: 8px;
+  image-rendering: crisp-edges; /* keep edges sharp */
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+:root{
+    --accent-pink:#E6007A;
+    --accent-blue:#3B82F6;
+}
+.button{background:var(--accent-pink);}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #E6007A; /* Deep Pink - still a vibrant accent */
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+p.section-description {
+    font-size: 1.1em;
+    text-align: center;
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #555; /* Slightly softer text color */
+}
+
+.section-padded {
+    padding: 80px 0;
+}
+
+.bg-light {
+    background-color: rgba(255, 255, 255, 0.9); /* More opaque white for sections to give content clarity */
+    border-radius: 20px; /* Slightly more rounded corners for softness */
+    margin: 40px auto;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08); /* Softer, slightly larger shadow */
+    max-width: 1100px;
+    padding: 60px 40px;
+}
+
+/* Header and Navigation */
+header {
+    background-color: rgba(255, 255, 255, 0.98); /* Almost fully opaque for better contrast */
+    padding: 15px 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* Slightly stronger, more defined shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(230, 0, 122, 0.1); /* Subtle pink bottom border for definition */
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;    /* prevent everything inside from wrapping */
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2em; /* Significantly larger logo text */
+    font-weight: 800; /* Bolder font weight */
+    color: #E6007A; /* Deep Pink */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1); /* Subtle text shadow for depth */
+    letter-spacing: -0.5px; /* Slightly tighter letter spacing for a more refined look */
+    transition: color 0.3s ease, transform 0.2s ease; /* Add transition for hover effect */
+    display: flex;
+    align-items: center;
+}
+
+.logo:hover {
+    color: #c70067; /* Slightly darker pink on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+nav { /* Make nav a flex container to manage logo and toggle on mobile */
+    display: flex;
+    justify-content: space-between; /* Pushes logo to left, toggle/menu items to right */
+    align-items: center;
+    width: 100%; /* Ensure nav takes full width if its parent isn't already managing it */
+    position: relative; /* For absolute positioning of mobile menu */
+}
+
+
+nav ul.primary-navigation {
+     list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;    /* no wrapping of your links */
+  gap: 1.5rem; 
+}
+
+nav ul.primary-navigation li {
+     margin: 0; /* Slightly more space between nav items */
+}
+
+nav ul.primary-navigation li a {
+    text-decoration: none;
+    color: #3B82F6; /* Blue - Keep as primary link color */
+    font-weight: 700; /* Bolder navigation links */
+    font-size: 1.1em; /* Slightly larger font size for links */
+    transition: color 0.3s ease, transform 0.2s ease; /* Add transition for hover */
+    position: relative;
+    padding-bottom: 5px; /* Space for the underline */
+}
+
+nav ul.primary-navigation li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px; /* Thicker underline */
+    display: block;
+    margin-top: 5px;
+    left: 50%; /* Start underline from center */
+    transform: translateX(-50%); /* Center it */
+    background: #E6007A; /* Pink underline */
+    transition: width 0.3s ease, background-color 0.3s ease; /* Smooth width and color transition */
+}
+
+nav ul.primary-navigation li a:hover::after,
+nav ul.primary-navigation li a.active::after {
+    width: 100%; /* Expand to full width */
+    background: #E6007A; /* Keep pink for hover/active */
+}
+
+nav ul.primary-navigation li a:hover,
+nav ul.primary-navigation li a.active {
+    color: #E6007A; /* Deep Pink on hover/active */
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+/* Mobile Navigation Toggle (Hamburger Button) */
+.mobile-nav-toggle {
+    display: none; /* Hidden by default, shown in media query */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1100; /* Above mobile menu */
+}
+
+.mobile-nav-toggle .sr-only { /* For accessibility */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.mobile-nav-toggle .hamburger-bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--accent-blue); /* Or your preferred color */
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.button-secondary {
+  background: #fc5c7d;
+  color: #fff;
+}
+
+.button-secondary:hover {
+  background: #6a82fb;
+}
+
+
+/* Hero Section */
+.hero {
+    /* Smoother, more harmonious gradient overlay */
+    background: linear-gradient(135deg, rgba(255, 192, 203, 0.7), rgba(173, 216, 230, 0.7)), url('images/hero-background.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 180px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 650px;
+    border-radius: 0;
+    box-shadow: none;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 4.8em; /* Even larger heading for impact */
+    margin-bottom: 25px;
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.5); /* Stronger text shadow for extreme contrast */
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -1px; /* Slightly tighter for boldness */
+}
+
+.hero p {
+    font-size: 1.6em; /* Even larger subtext */
+    margin-bottom: 45px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.4); /* Stronger text shadow */
+    max-width: 800px; /* Constrain width for readability */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons .button {
+    background-color: #3B82F6; /* Blue */
+    color: #fff;
+    padding: 20px 40px; /* Even larger button */
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2em; /* Larger text in button */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Even more prominent shadow */
+}
+
+.hero-buttons .button:hover {
+    background-color: #1a56c7; /* Darker blue */
+    transform: translateY(-7px); /* More pronounced lift */
+    box-shadow: 0 14px 28px rgba(0,0,0,0.45);
+}
+
+/* About Us Section */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.about-item {
+    background-color: #f8faff; /* Very light blue background for items */
+    padding: 35px; /* Slightly more padding */
+    border-radius: 15px; /* More rounded */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06); /* Softer shadow */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0f0ff; /* Subtle border */
+}
+
+.about-item:hover {
+    transform: translateY(-12px); /* More lift */
+    box-shadow: 0 18px 35px rgba(0,0,0,0.1); /* Stronger, softer shadow */
+}
+
+.about-item h3 {
+    color: #3B82F6; /* Blue */
+    font-size: 1.6em; /* Slightly larger */
+    margin-bottom: 15px;
+}
+
+.about-item p {
+    font-size: 1.05em;
+    line-height: 1.6;
+    color: #666; /* Softer paragraph text */
+}
+
+/* Family Conflict & Support Section */
+#families .flex-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+#families .text-content {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+}
+
+#families .text-content p {
+    margin-bottom: 20px;
+    line-height: 1.8; /* More comfortable line height */
+    font-size: 1.15em; /* Slightly larger text */
+    color: #444; /* Softer text color */
+}
+
+#families .image-content {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#families .image-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px; /* Consistent rounded corners */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1); /* Enhanced shadow */
+}
+
+#families .button {
+    background-color: #E6007A; /* Deep Pink */
+    color: #fff;
+    padding: 15px 30px; /* Consistent button size */
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    margin-top: 25px; /* More space above button */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+#families .button:hover {
+    background-color: #c70067; /* Darker Pink */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.35);
+}
+
+
+/* Blogs Section */
+.blogs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.blog-card {
+    background-color: #fff;
+    border-radius: 15px; /* More rounded */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06); /* Softer shadow */
+    overflow: hidden;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #eee; /* Subtle border */
+}
+
+.blog-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.1);
+}
+
+.blog-card img {
+    width: 100%;
+    height: 220px; /* Slightly taller images */
+    object-fit: cover;
+    display: block;
+}
+
+.blog-card h3 {
+    font-size: 1.4em; /* Slightly larger heading */
+    margin: 20px 20px 10px 20px;
+    color: #3B82F6; /* Blue */
+}
+
+.blog-card p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin: 0 20px 20px 20px;
+    flex-grow: 1;
+    color: #666;
+}
+
+/* Questionnaire Specific Styles */
+#conflictQuestionnaire {
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 20px; /* Consistent rounded corners */
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08); /* Softer, larger shadow */
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    min-height: 380px; /* Increased min-height to prevent jumping */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-20px); /* Adjust this value to shift left (-ve) or right (+ve) */
+}
+
+.question-slide {
+    display: none;
+    opacity: 0;
+    transform: translateY(30px); /* More pronounced lift-in effect */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Slower, smoother transition */
+    position: absolute;
+    width: calc(100% - 100px);
+    text-align: center;
+}
+
+.question-slide.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transform: translateY(0);
+    position: relative;
+}
+
+.question-slide .form-group {
+    margin-bottom: 35px; /* More space for single questions */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.question-slide .form-group label {
+    font-size: 1.6em; /* Even larger question text */
+    margin-bottom: 30px; /* More space below question */
+    line-height: 1.5;
+    color: #E6007A; /* Deep Pink for questions */
+    font-weight: 700;
+    text-align: center;
+    max-width: 90%;
+}
+
+.question-emoji {
+    font-size: 1.8em; /* Larger emoji for more impact */
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.question-slide .form-group input[type="radio"] {
+    display: none;
+}
+
+.question-slide .form-group label.radio-label {
+    display: inline-block;
+    background-color: #e8f5ff; /* Very light blue, softer than before */
+    color: #3B82F6; /* Blue text */
+    padding: 18px 45px; /* More padding for larger buttons */
+    border-radius: 35px; /* Even more rounded, very pill-like */
+    border: 2px solid #3B82F6;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin: 12px 18px; /* More space between options */
+    font-size: 1.3em; /* Larger font for options */
+    min-width: 180px; /* Wider buttons */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Softer initial shadow */
+}
+
+.question-slide .form-group input[type="radio"]:checked + label.radio-label {
+    background-color: #3B82F6;
+    color: #fff;
+    border-color: #3B82F6;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4); /* Stronger, more vibrant shadow */
+    transform: translateY(-5px); /* More pronounced lift */
+}
+
+.question-slide .form-group label.radio-label:hover {
+    background-color: #d1ecff; /* Lighter hover for unselected */
+    border-color: #1a56c7;
+    color: #1a56c7;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    transform: translateY(-3px);
+}
+.question-slide .form-group input[type="radio"]:checked + label.radio-label:hover {
+    background-color: #1a56c7;
+    border-color: #1a56c7;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.5);
+    transform: translateY(-6px);
+}
+
+
+/* Progress Bar Styles */
+.progress-bar-container {
+    width: 85%; /* Slightly wider progress bar */
+    max-width: 550px; /* Slightly wider max-width */
+    margin: 0 auto 55px auto; /* More space below progress bar */
+    background-color: #e0e0e0;
+    border-radius: 12px; /* More rounded */
+    height: 14px; /* Taller */
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    /* More engaging gradient for progress */
+    background: linear-gradient(to right, #FFC0CB, #E6007A, #3B82F6); /* Soft pink to deep pink to blue */
+    border-radius: 12px;
+    transition: width 0.6s ease-out; /* Slower, smoother transition */
+}
+
+.progress-text {
+    position: absolute;
+    top: -35px; /* Position further above the bar */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.05em; /* Slightly larger font */
+    color: #3B82F6; /* Blue for progress text */
+    font-weight: 700;
+    white-space: nowrap;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Subtle text shadow */
+}
+
+
+/* Ensure the submit button is hidden by default and only shown by JS */
+#submitQuestionnaireButton {
+    display: none;
+    margin-top: 40px; /* More space above submit button */
+    font-size: 1.4em; /* Larger submit button */
+    padding: 20px 45px; /* More padding */
+    background-color: #E6007A; /* Pink for submit button */
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#submitQuestionnaireButton:hover {
+    background-color: #c70067; /* Darker Pink */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.35);
+}
+
+
+/* Contact Section */
+#contact .form-group {
+    margin-bottom: 25px; /* More space between form groups */
+    text-align: left;
+}
+
+#contact .form-group label {
+    display: block;
+    margin-bottom: 10px; /* More space between label and input */
+    font-weight: 600;
+    color: #3B82F6;
+    font-size: 1.05em; /* Slightly larger label */
+}
+
+#contact .form-group input[type="text"],
+#contact .form-group input[type="email"],
+#contact .form-group input[type="tel"],
+#contact .form-group textarea {
+    width: calc(100% - 24px); /* Account for padding */
+    padding: 14px 12px; /* More padding */
+    border: 1px solid #ddd;
+    border-radius: 10px; /* More rounded inputs */
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fcfcfc; /* Slightly off-white background */
+}
+
+#contact .form-group input[type="text"]:focus,
+#contact .form-group input[type="email"]:focus,
+#contact .form-group input[type="tel"]:focus,
+#contact .form-group textarea:focus {
+    border-color: #E6007A;
+    box-shadow: 0 0 0 4px rgba(230, 0, 122, 0.25); /* Stronger focus shadow */
+    outline: none;
+}
+
+#contact .form-group textarea {
+    resize: vertical;
+    min-height: 120px; /* Ensure a decent minimum height */
+}
+
+#contact .button {
+    background-color: #E6007A; /* Deep Pink */
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+#contact .button:hover {
+    background-color: #c70067;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.35);
+}
+
+.contact-info {
+    background-color: #fff;
+    padding: 35px; /* More padding */
+    border-radius: 15px; /* Consistent rounded corners */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    text-align: left;
+    margin-left: 20px;
+    border: 1px solid #eee; /* Subtle border */
+}
+
+.contact-info h3 {
+    color: #3B82F6;
+    margin-bottom: 20px; /* More space below heading */
+    font-size: 1.6em;
+}
+
+.contact-info p {
+    line-height: 1.8; /* More comfortable line height */
+    margin-bottom: 12px;
+    font-size: 1.05em;
+    color: #555;
+}
+
+.contact-info a {
+    color: #E6007A;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+.contact-info a:hover {
+    text-decoration: underline;
+    color: #c70067;
+}
+
+
+/* Footer */
+footer {
+    background-color: #2a2a2a; /* Slightly darker grey for depth */
+    color: #eee; /* Lighter text color */
+    padding: 35px 0; /* More padding */
+    text-align: center;
+    font-size: 0.95em;
+    margin-top: 60px; /* More space above footer */
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer p {
+    margin: 0;
+}
+
+.social-links a {
+    margin-left: 18px; /* More space between icons */
+    display: inline-block;
+}
+
+.social-links img {
+    width: 28px; /* Slightly larger icons */
+    height: 28px;
+    vertical-align: middle;
+    transition: transform 0.2s ease;
+}
+
+.social-links img:hover {
+    transform: translateY(-4px); /* More pronounced lift */
+}
+
+.support-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.support-card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  padding: 25px 20px;
+  text-align: left;
+  border: 1px solid #eee;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.support-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+}
+
+.support-card h3 {
+  color: var(--accent-blue);
+  margin-bottom: 10px;
+  font-size: 1.3em;
+}
+
+.support-card p {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.5;
+}
+
+.support-card a {
+  color: var(--accent-pink);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.support-card a:hover {
+  text-decoration: underline;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 3.5em;
+    }
+    .hero p {
+        font-size: 1.3em;
+    }
+    #families .flex-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    #families .image-content {
+        order: -1;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* --- Mobile Navigation Styles --- */
+    .mobile-nav-toggle {
+        display: block; /* Show hamburger */
+        order: 2; /* Position after logo if nav is flex */
+    }
+
+    nav .logo {
+        order: 1; /* Ensure logo is first */
+        flex-shrink: 0; /* Prevent logo from shrinking too much */
+    }
+
+    /* Hide desktop navigation links */
+    nav ul.primary-navigation {
+        display: none; /* Hidden by default */
+        flex-direction: column;
+        align-items: center; /* Center links when menu is open */
+        position: absolute;
+        top: calc(100% + 5px); /* Position below the header (nav element height + small gap) */
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.99); /* Slightly more opaque */
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15); /* Softer shadow for dropdown */
+        padding: 15px 0;
+        z-index: 1000; /* Ensure it's above content but respects header's z-index context */
+        margin-top: 0; /* Reset any top margin */
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    nav ul.primary-navigation.mobile-menu-open {
+        display: flex; /* Show when class is applied by JS */
+    }
+
+    nav ul.primary-navigation li {
+        margin-left: 0; /* Reset desktop margin */
+        margin: 12px 0; /* Space out links vertically */
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul.primary-navigation li a {
+        padding: 12px 0; /* Larger tap area */
+        font-size: 1.2em; /* Make links slightly larger for readability */
+        display: block; /* Make the whole list item area clickable */
+    }
+    nav ul.primary-navigation li a::after { /* Adjust underline for mobile if needed, or remove */
+        display: none; /* Simpler look for mobile, or adjust as per design */
+    }
+     nav ul.primary-navigation li a:hover,
+     nav ul.primary-navigation li a.active {
+        /* Mobile active/hover can be simpler, color change is good */
+        color: #E6007A;
+        transform: none; /* Remove translateY for mobile menu items */
+    }
+
+
+    /* Animate hamburger to X when menu is open */
+    .mobile-nav-toggle[aria-expanded="true"] .hamburger-bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .mobile-nav-toggle[aria-expanded="true"] .hamburger-bar:nth-child(2) {
+        opacity: 0;
+    }
+    .mobile-nav-toggle[aria-expanded="true"] .hamburger-bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    /* --- End Mobile Navigation Styles --- */
+
+    /* Adjusting the header .container if it was previously set to flex-direction: column */
+    /* header .container {
+        flex-direction: row; /* This should be default or handled by nav's flex properties
+        align-items: center;
+    } */
+    /* The 'nav' element itself is now the primary flex container for logo and toggle. */
+
+    h2 {
+        font-size: 2.2em;
+    }
+    .section-padded {
+        padding: 60px 0;
+    }
+    .bg-light {
+        padding: 50px 25px;
+    }
+    #conflictQuestionnaire {
+        padding: 40px 25px;
+        min-height: 320px;
+        transform: translateX(-10px); /* Less shift on smaller screens */
+    }
+    .question-slide {
+        width: calc(100% - 50px); /* Adjusted width */
+    }
+    .question-slide .form-group label {
+        font-size: 1.4em;
+    }
+    .question-slide .form-group label.radio-label {
+        font-size: 1.1em;
+        padding: 14px 30px;
+        margin: 10px 12px;
+    }
+    .progress-bar-container {
+        width: 90%;
+        margin-bottom: 40px;
+    }
+    footer .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .social-links {
+        margin-top: 15px;
+    }
+    #contact .flex-container {
+        flex-direction: column;
+        gap: 25px;
+    }
+    .contact-info {
+        margin-left: 0;
+        text-align: center;
+    }
+    .contact-info h3 {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.8em;
+    }
+    .hero p {
+        font-size: 1.1em;
+    }
+    .hero-buttons .button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    .logo {
+        font-size: 1.8em; /* Slightly adjust logo for very small screens */
+    }
+    nav ul.primary-navigation li a { /* Further adjust mobile nav link font size if needed */
+        font-size: 1.1em;
+    }
+    h2 {
+        font-size: 1.9em;
+    }
+    .section-padded {
+        padding: 30px 0;
+    }
+    .bg-light {
+        padding: 30px 15px;
+    }
+    .blogs-grid {
+        grid-template-columns: 1fr;
+    }
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+    #conflictQuestionnaire {
+        padding: 30px 15px;
+        min-height: 280px;
+        transform: translateX(0); /* Remove shift on very small screens to ensure full centering */
+    }
+    .question-slide {
+        width: calc(100% - 30px);
+    }
+    .question-slide .form-group label {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+    .question-slide .form-group label.radio-label {
+        font-size: 1em;
+        padding: 10px 20px;
+        margin: 8px 10px;
+        min-width: unset; /* Allow buttons to shrink on very small screens */
+    }
+    .progress-text {
+        font-size: 0.9em;
+    }
+    #submitQuestionnaireButton {
+        font-size: 1.2em;
+        padding: 15px 35px;
+    }
+}
+@media (min-width: 768px) {
+  .mobile-nav-toggle {
+    display: none;      /* hide hamburger on desktop */
+  }
+}

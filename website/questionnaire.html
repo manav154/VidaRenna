@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VidaRenna – Questionnaire</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Vidarenna</div>
+        <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+            <span class="sr-only">Menu</span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
+        <ul class="primary-navigation">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#families">Family Support</a></li>
+          <li><a href="index.html#blogs">Blogs</a></li>
+          <li><a href="index.html#questionnaire">Questionnaire</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="questionnaire-page-content" class="section-padded bg-light">
+      <div class="container">
+        <h2>Website Questionnaire</h2>
+        <p class="section-description">This confidential questionnaire is designed to help us understand your situation better and connect you with the most appropriate support. Your responses are completely private.</p>
+
+        <div id="questionnaire-progress" class="progress-bar-container">
+          <div class="progress-bar-fill"></div>
+          <span class="progress-text">Progress</span> </div>
+
+        <form id="conflictQuestionnaire">
+          <div class="question-slide" data-question-index="0">
+            <div class="form-group">
+              <label for="q1">Are you (or someone you care about) going through a tough situation at home that feels unsafe, overwhelming, or just not right? <span class="question-emoji">🏠</span></label>
+              <input type="radio" id="q1_yes" name="q1" value="yes" required> <label for="q1_yes" class="radio-label">Yes</label><br>
+              <input type="radio" id="q1_no" name="q1" value="no"> <label for="q1_no" class="radio-label">No</label>
+            </div>
+          </div>
+
+          <div class="question-slide" data-question-index="1" style="display: none;">
+            <div class="form-group">
+              <label for="q2">Is the situation putting you (or someone else) in immediate danger right now? <span class="question-emoji">🚨</span></label>
+              <input type="radio" id="q2_yes" name="q2" value="yes" required> <label for="q2_yes" class="radio-label">Yes</label><br>
+              <input type="radio" id="q2_no" name="q2" value="no"> <label for="q2_no" class="radio-label">No</label>
+            </div>
+          </div>
+
+          <div class="question-slide" data-question-index="2" style="display: none;">
+            <div class="form-group">
+              <label for="q3">Is this situation affecting how safe, stable, or supported you feel at home - like feeling pushed out, ignored, or overwhelmed? <span class="question-emoji">😥</span></label>
+              <input type="radio" id="q3_yes" name="q3" value="yes" required> <label for="q3_yes" class="radio-label">Yes</label><br>
+              <input type="radio" id="q3_no" name="q3" value="no"> <label for="q3_no" class="radio-label">No</label>
+            </div>
+          </div>
+
+          <div class="question-slide" data-question-index="3" style="display: none;">
+            <div class="form-group">
+              <label for="q4">Are you worried about losing your housing, or not having a safe place to stay? <span class="question-emoji">🏡</span></label>
+              <input type="radio" id="q4_yes" name="q4" value="yes" required> <label for="q4_yes" class="radio-label">Yes</label><br>
+              <input type="radio" id="q4_no" name="q4" value="no"> <label for="q4_no" class="radio-label">No</label>
+            </div>
+          </div>
+
+          <div class="question-slide" data-question-index="4" style="display: none;">
+            <div class="form-group">
+              <label for="q5">Are you <25 years of age? <span class="question-emoji">🧒</span></label>
+              <input type="radio" id="q5_yes" name="q5" value="yes" required> <label for="q5_yes" class="radio-label">Yes</label><br>
+              <input type="radio" id="q5_no" name="q5" value="no"> <label for="q5_no" class="radio-label">No</label>
+            </div>
+          </div>
+
+          <div class="question-slide" data-question-index="5" style="display: none;">
+            <div class="form-group">
+              <label for="q6">Even if you're still at home, is the situation starting to affect your mental health like feeling stressed, down, or emotionally stuck? <span class="question-emoji">🧠</span></label>
+              <input type="radio" id="q6_yes" name="q6" value="yes" required> <label for="q6_yes" class="radio-label">Yes</label><br>
+              <input type="radio" id="q6_no" name="q6" value="no"> <label for="q6_no" class="radio-label">No</label>
+            </div>
+          </div>
+
+          <div class="question-slide" data-question-index="6" style="display: none;">
+            <div class="form-group">
+              <label for="q7">Are you having thoughts of hurting yourself or feeling hopeless? <span class="question-emoji">😔</span></label>
+              <input type="radio" id="q7_yes" name="q7" value="yes" required> <label for="q7_yes" class="radio-label">Yes</label><br>
+              <input type="radio" id="q7_no" name="q7" value="no"> <label for="q7_no" class="radio-label">No</label>
+            </div>
+          </div>
+
+          <div class="question-slide" data-question-index="7" style="display: none;">
+            <div class="form-group">
+              <label for="q8">Are you or someone close to you dealing with substance use like drinking, smoking, or using that is starting to affect things? <span class="question-emoji">🚬</span></label>
+              <input type="radio" id="q8_yes" name="q8" value="yes" required> <label for="q8_yes" class="radio-label">Yes</label><br>
+              <input type="radio" id="q8_no" name="q8" value="no"> <label for="q8_no" class="radio-label">No</label>
+            </div>
+          </div>
+
+          <div class="question-slide" data-question-index="8" style="display: none;">
+            <div class="form-group">
+              <label for="q9">Is something in a relationship like dating, partner, or close friend causing stress, control, or pressure that feels off? <span class="question-emoji">💔</span></label>
+              <input type="radio" id="q9_yes" name="q9" value="yes" required> <label for="q9_yes" class="radio-label">Yes</label><br>
+              <input type="radio" id="q9_no" name="q9" value="no"> <label for="q9_no" class="radio-label">No</label>
+            </div>
+          </div>
+
+          <div class="question-slide" data-question-index="9" style="display: none;">
+            <div class="form-group">
+              <label for="q10">Are you feeling overwhelmed by something related to pregnancy, birth control, or sexual health? <span class="question-emoji">🤰</span></label>
+              <input type="radio" id="q10_yes" name="q10" value="yes" required> <label for="q10_yes" class="radio-label">Yes</label><br>
+              <input type="radio" id="q10_no" name="q10" value="no"> <label for="q10_no" class="radio-label">No</label>
+            </div>
+          </div>
+
+          <div class="question-slide" data-question-index="10" style="display: none;">
+            <div class="form-group">
+              <label for="q11">Are school, grades, or pressure from home starting to pile up or make things harder day-to-day? <span class="question-emoji">📚</span></label>
+              <input type="radio" id="q11_yes" name="q11" value="yes" required> <label for="q11_yes" class="radio-label">Yes</label><br>
+              <input type="radio" id="q11_no" name="q11" value="no"> <label for="q11_no" class="radio-label">No</label>
+            </div>
+          </div>
+
+          <div class="question-slide" data-question-index="11" style="display: none;">
+            <div class="form-group">
+              <label for="q12">It's okay if you're not sure. Would you like to check in on other areas where people sometimes need help? <span class="question-emoji">🤔</span></label>
+              <input type="radio" id="q12_yes" name="q12" value="yes" required> <label for="q12_yes" class="radio-label">Yes</label><br>
+              <input type="radio" id="q12_no" name="q12" value="no"> <label for="q12_no" class="radio-label">No</label>
+            </div>
+          </div>
+
+          <button type="submit" class="button" id="submitQuestionnaireButton" style="display: none;">Submit Questionnaire</button>
+          <p id="questionnaireMessage" style="margin-top: 15px; text-align: center; display: none;"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Vidarenna. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // This script ensures that links to sections on index.html work correctly from this page.
+    // It complements the global script.js functionality.
+    document.querySelectorAll('nav ul.primary-navigation a[href^="index.html#"]').forEach(link => {
+      link.addEventListener('click', function (e) {
+        const isMenuOpen = document.querySelector('.primary-navigation.mobile-menu-open');
+        if (!isMenuOpen && window.location.pathname.includes('index.html')) {
+          // If menu is not open (desktop) and already on index.html, let script.js handle smooth scroll
+          return;
+        }
+        e.preventDefault(); // Prevent default for JS-handled navigation
+        const href = this.getAttribute('href');
+        window.location.href = href; // Navigate to index.html and scroll to hash
+      });
+    });
+
+    // Special handling for the "Questionnaire" link in the nav when on questionnaire.html
+    // to scroll to top of this page if clicked, or navigate if it pointed elsewhere.
+    document.querySelectorAll('nav ul.primary-navigation a[href="#questionnaire"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            // If the current page is questionnaire.html and the link is #questionnaire
+            if (window.location.pathname.includes('questionnaire.html')) {
+                e.preventDefault();
+                // Scroll to the top of the questionnaire content on this page
+                const questionnaireContent = document.getElementById('questionnaire-page-content');
+                if (questionnaireContent) {
+                    questionnaireContent.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' }); // Fallback to page top
+                }
+                // Close mobile menu if open (handled by global script.js, but good for explicitness)
+                 const primaryNav = document.querySelector('.primary-navigation');
+                 const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+                 if (primaryNav && primaryNav.classList.contains('mobile-menu-open')) {
+                    primaryNav.classList.remove('mobile-menu-open');
+                    if (mobileNavToggle) mobileNavToggle.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                 }
+            }
+            // If it was index.html#questionnaire, global script handles it
+        });
+    });
+  </script>
+</body>
+</html>
